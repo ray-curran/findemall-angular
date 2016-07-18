@@ -29,6 +29,7 @@ angular.module('MyApp')
 
   $scope.search = function(location) {
     $scope.starting = false;
+    $scope.map.window.show = false;
     $scope.pokemon = []
     $scope.loading = true;
     $scope.tryagain = false;

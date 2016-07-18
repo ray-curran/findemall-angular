@@ -1,4 +1,8 @@
-<h1 ng-show="tryagain">Unable to successfully reach the servers at this moment, please try again.</h1>
+<div ng-show="starting">
+<h1 ng-show="starting" class="text-center">Enter a location to find pokemon near you! Please be patient, as the servers aren't always ready to roll.</h1>
+<img class="text-center center-image" src="https://i.kinja-img.com/gawker-media/image/upload/gvunw5doq2fnyopusd3x.png" alt="">
+</div>
+<h1 class="text-center" ng-show="tryagain">Unable to successfully reach the servers at this moment, please try again or come back later. :(</h1>
 <div id="mydiv">
   <img ng-show="loading" src="https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png" class="ajax-loader"/>
 </div>
@@ -11,19 +15,22 @@
     </div>
     </div> -->
   <div class="col-md-12">
-    <ui-gmap-google-map draggable="true" options="options" center='map.center' zoom='map.zoom'>
+    <ui-gmap-google-map draggable="true" center='map.center' zoom='map.zoom'>
       <ui-gmap-markers
+      docluster="false"
       icon="'icon'"
-      options="options"
-      click="onClick()"
       models="pokemon"
       coords="'self'"
       fit=true
+      events="map.markersEvents" options="'options'"
       >
-      <ui-gmap-windows show='show' closeClick="closeClick()">
+      <ui-gmap-window isIconVisibleOnClick="false" templateUrl="'partials/info.html'" templateParameter="map.window.model" show="map.window.show" coords="map.window.model" options="map.window.options" closeclick="map.window.closeClick()">
+        <!-- <div ng-non-bindable='' class="text-center"><b>{{poke_name}}</b><br>{{distance_apart}} {{direction}} meters from you <br> Will remain for {{time_visible}} seconds</div> -->
+      </ui-gmap-window>
+    <!--   <ui-gmap-windows show='show' closeClick="closeClick()">
           <div ng-non-bindable class="text-center"><b>{{poke_name}}</b><br>{{distance_apart}} {{direction}} meters from you <br> Will remain for {{time_visible}} seconds</div>
         <div ng-non-bindable class="text-center"></div>
-      </ui-gmap-windows>
+      </ui-gmap-windows> -->
     </ui-gmap-markers>
   </ui-gmap-google-map>
 </div>

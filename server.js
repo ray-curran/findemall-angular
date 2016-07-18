@@ -11,7 +11,6 @@ var dotenv = require('dotenv');
 dotenv.load();
 
 // Controllers
-var contactController = require('./controllers/contact');
 
 var app = express();
 
@@ -24,7 +23,6 @@ app.use(expressValidator());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.post('/contact', contactController.contactPost);
 
 app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);

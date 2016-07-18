@@ -1,11 +1,34 @@
 angular.module('MyApp')
 .controller('ContactCtrl', function($scope, $http) {
-  $scope.map = { center: { latitude: 39.0997, longitude: -94.5786 }, zoom: 4 };
+  $scope.starting = true;
+
+  $scope.map = {
+    center: { latitude: 39.0997, longitude: -94.5786 },
+    zoom: 4,
+    markers: $scope.pokemon,
+    markersEvents: {
+            click: function(marker, eventName, model, arguments) {
+                $scope.map.window.model = model;
+                $scope.map.window.show = true;
+                $scope.map.window.options.id = model.id;
+                $scope.$apply();
+            }
+        },
+        window: {
+            marker: {},
+            show: false,
+            closeClick: function() {
+                this.show = false;
+            },
+            options: {}
+        }
+  };
   $scope.pokemon = []
   // $scope.pokemon = [{id: 1, latitude: 19.2343243, longitude: 20.2342343243, poke_name: 'Mewtwo', icon: '../images/150.png'}, {id: 2, latitude: 20.24324234, longitude: 19.2432432, poke_name: 'Pikachu', icon: '../images/025.png'}]
   $scope.options = {scrollwheel: true};
 
   $scope.search = function(location) {
+    $scope.starting = false;
     $scope.pokemon = []
     $scope.loading = true;
     $scope.tryagain = false;
@@ -19,18 +42,18 @@ angular.module('MyApp')
     })
   }
 
-  $scope.windowOptions = {
-    visible: false
-  };
+  $scope.poke_name = 'Rayhorn'
 
-  $scope.onClick = function() {
-    $scope.windowOptions.visible = !$scope.windowOptions.visible;
-  };
+  // $scope.windowOptions = {
+  //   visible: false
+  // };
 
-  $scope.closeClick = function() {
-    $scope.windowOptions.visible = false;
-  };
+  // $scope.onClick = function() {
+  //   $scope.windowOptions.visible = !$scope.windowOptions.visible;
+  // };
 
-  $scope.title = "Window Title!";
+  // $scope.closeClick = function() {
+  //   $scope.windowOptions.visible = false;
+  // };
 
 });

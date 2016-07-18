@@ -32,7 +32,7 @@ angular.module('MyApp')
     $scope.pokemon = []
     $scope.loading = true;
     $scope.tryagain = false;
-    $http.get('http://localhost:5000/api/testing/' + location).success(function(data) {
+    $http.get('http://findemall-server.herokuapp.com/api/testing/' + location).success(function(data) {
       $scope.searchLocation = ''
       $scope.pokemon = data.pokemon_close;
       $scope.loading = false;

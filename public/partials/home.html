@@ -21,7 +21,8 @@
       fit=true
       >
       <ui-gmap-windows show='show' closeClick="closeClick()">
-        <div ng-non-bindable>{{poke_name}}</div>
+          <div ng-non-bindable class="text-center"><b>{{poke_name}}</b><br>{{distance_apart}} {{direction}} meters from you <br> Will remain for {{time_visible}} seconds</div>
+        <div ng-non-bindable class="text-center"></div>
       </ui-gmap-windows>
     </ui-gmap-markers>
   </ui-gmap-google-map>

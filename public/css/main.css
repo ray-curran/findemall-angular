@@ -1,0 +1,72 @@
+
+.angular-google-map-container {
+  height: 600px;
+}
+
+ui-gmap-google-map {
+  /* position: fixed; */
+  z-index: 35253532;
+  /* right: 0; */
+  /* bottom: 0; */
+  /* top: 4em; */
+  width: 100%;
+}
+
+.footer-left {
+  float: left;
+}
+
+.footer-right {
+  float: right;
+}
+
+.flashes {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+#mydiv {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /* z-index:1000; */
+ }
+
+.ajax-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
+
+/* .col-md-6 {
+  width: 49%;
+  margin-top: 2em;
+} */
+
+.row {
+  z-index: 10012;
+}
+
+.navbar-default {
+  z-index: 23;
+}
+

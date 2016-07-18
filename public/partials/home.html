@@ -1,0 +1,30 @@
+<h1 ng-show="tryagain">Unable to successfully reach the servers at this moment, please try again.</h1>
+<div id="mydiv">
+  <img ng-show="loading" src="https://cdn4.iconfinder.com/data/icons/longico/224/longico-23-512.png" class="ajax-loader"/>
+</div>
+<div class="row" ng-if="pokemon.length !== 0">
+  <!-- <div class="col-md-6"> -->
+<!--     <div ng-repeat="poke in pokemon">
+      <h3>{{poke.poke_name}}</h3>
+      <h5>Latitude: {{poke.latitude}}</h5>
+      <h5>Longitude: {{poke.longitude}}</h5>
+    </div>
+    </div> -->
+  <div class="col-md-12">
+    <ui-gmap-google-map draggable="true" options="options" center='map.center' zoom='map.zoom'>
+      <ui-gmap-markers
+      icon="'icon'"
+      options="options"
+      click="onClick()"
+      models="pokemon"
+      coords="'self'"
+      fit=true
+      >
+      <ui-gmap-windows show='show' closeClick="closeClick()">
+        <div ng-non-bindable>{{poke_name}}</div>
+      </ui-gmap-windows>
+    </ui-gmap-markers>
+  </ui-gmap-google-map>
+</div>
+</div>
+
